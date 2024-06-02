@@ -1,3 +1,2 @@
 nltk 
 docx
-exceptions

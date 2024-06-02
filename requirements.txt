@@ -1,4 +1,4 @@
 nltk
 docx
 python-docx
-sklearn
+scikit-learn

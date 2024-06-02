@@ -68,9 +68,9 @@ def main():
 
         category_name = category_map.get(prediction_id, "Unknown")
         st.write("Predicted Category:", category_name) 
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        st.error("Error processing resume. Please try again.")
+    #except Exception as e:
+        #print(f"An error occurred: {e}")
+        #st.error("Error processing resume. Please try again.")
 
 
 # Python main

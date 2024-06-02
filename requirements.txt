@@ -1,5 +1,1 @@
-streamlit                                              
-pickle                                                            
-re                                                                
 nltk                                                              
-Document

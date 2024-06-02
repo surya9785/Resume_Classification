@@ -41,17 +41,17 @@ def clean_docx_resume(docx_file):
 def main():
     st.title("Resume Screening App")
     uploaded_file = st.file_uploader('Upload Resume', type=['txt', 'pdf', 'docx'])
-
-    if uploaded_file is not None:
-        try:
-            if uploaded_file.name.endswith('.docx'):
-                resume_text = clean_docx_resume(uploaded_file)
-            else:
-                resume_bytes = uploaded_file.read()
-                resume_text = resume_bytes.decode('utf-8')
-                # Attempt 'latin-1' decoding if UTF-8 fails (as in previous code)
-        except UnicodeDecodeError:
-                    resume_text = resume_bytes.decode('latin-1')
+    try:
+        if uploaded_file is not None:
+            try:
+                if uploaded_file.name.endswith('.docx'):
+                    resume_text = clean_docx_resume(uploaded_file)
+                else:
+                    resume_bytes = uploaded_file.read()
+                    resume_text = resume_bytes.decode('utf-8')
+                    # Attempt 'latin-1' decoding if UTF-8 fails (as in previous code)
+            except UnicodeDecodeError:
+                resume_text = resume_bytes.decode('latin-1')
 
         cleaned_resume = clean_resume(resume_text)
         input_features = count.transform([cleaned_resume])
@@ -67,11 +67,10 @@ def main():
             }
 
         category_name = category_map.get(prediction_id, "Unknown")
-        st.write("Predicted Category:", category_name)
-
-        #except Exception as e:
-            #print(f"An error occurred: {e}")
-            #st.error("Error processing resume. Please try again.")
+        st.write("Predicted Category:", category_name) 
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        st.error("Error processing resume. Please try again.")
 
 
 # Python main

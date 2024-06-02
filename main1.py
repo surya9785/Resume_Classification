@@ -67,7 +67,7 @@ def main():
             }
 
         category_name = category_map.get(prediction_id, "Unknown")
-        st.write("Predicted Category:", category_name) 
+        st.write("Category:", category_name) 
     except Exception as e:
         print("Please Upload The File")
         #st.error("Error processing resume. Please try again.")

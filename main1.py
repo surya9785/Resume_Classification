@@ -39,7 +39,7 @@ def clean_docx_resume(docx_file):
 
 
 def main():
-    st.title("Resume Screening App")
+    st.title("Classification of Resume")
     uploaded_file = st.file_uploader('Upload Resume', type=['txt', 'pdf', 'docx'])
     try:
         if uploaded_file is not None:
